@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-#e_j^ou$i19y2d3pw&fp3r#vnsc=p&&%cr4ec9#@5942%qe2+p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.0.132', 'localhost','*']
+ALLOWED_HOSTS = ['*']
 DEBUG = False
 # Collect static files
 # Run this after setup: python manage.py collectstatic
@@ -48,12 +48,14 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'stream',
-    'BEproject'
+    'corsheaders'
 ]
 
+CORS_ALLOW_ALL_ORIGINS=True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
